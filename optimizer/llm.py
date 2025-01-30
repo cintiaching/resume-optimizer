@@ -1,9 +1,5 @@
 import ollama
 from enum import Enum
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
 
 
 class LLMs(Enum):
@@ -17,7 +13,7 @@ def llm_chat(prompt: str, model_name: LLMs):
             "content": prompt,
         },
     ])
-    return response
+    return response.message.content
 
 
 class TokenCounter:
